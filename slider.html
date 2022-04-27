@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .animation_canvas {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        overflow: hidden;
+      }
+      .slider_panel {
+        width: 3600px;
+        position: relative;
+      }
+      .slider_image {
+        float: left;
+        width: 600px;
+        height: 400px;
+      }
+
+      .slider_text_panel {
+        position: absolute;
+        top: 200px;
+        left: 50px;
+      }
+      .slider_text {
+        position: absolute;
+        width: 250px;
+        height: 150px;
+        color: white;
+      }
+
+      .control_panel {
+        position: absolute;
+        left: 270px;
+        top: 380px;
+        height: 13px;
+        overflow: hidden;
+      }
+      .control_button {
+        width: 12px;
+        height: 46px;
+        position: relative;
+        float: left;
+        background: url("point_button.png");
+        cursor: pointer; /* 마우스를 올리면 손가락 모양 */
+      }
+      .control_button:hover {
+        top: -16px;
+      }
+      .control_button.active {
+        top: -31px;
+      }
+    </style>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function () {
+        // 슬라이더를 움직여주는 함수
+        function moveSlider(index) {
+          // 이미지를 이동
+          let moveLeft = -(index * 600);
+          $(".slider_panel").animate(
+            {
+              left: moveLeft,
+            },
+            "slow"
+          );
+
+          // control_button 에 active 클래스를 추가/제거
+          // 현재 control_button의 이미지의 순서와 같은 위치에 있는 버튼이라면
+          // active 클래스를 추가하고, 다른 위치에 있는 버튼들은 active 클래스를 제거
+          $(".control_button[text-index='" + index + "']").addClass("active");
+          $(".control_button[text-index!='" + index + "']").removeClass(
+            "active"
+          );
+
+          // 글자 이동
+          $(".slider_text[text-index=" + index + "]")
+            .show()
+            .animate(
+              {
+                left: 0,
+              },
+              "slow"
+            );
+          $(".slider_text[text-index!=" + index + "]").hide(
+            "slow",
+            function () {
+              $(this).css("left", -300);
+            }
+          );
+        }
+
+        $(".slider_text") // silder_text 라는 클래스를 가진 태그의
+          .css("left", -300) // css 속성중 left 값을 -300 으로 변경
+          .each(function (index) {
+            // 각각의 태그에 함수를 적용
+            $(this).attr("text-index", index);
+            // attr() => 태그 객체에 속성을 부여하는 메소드
+            // this 문서 객체에 text-index 라는 속성을 부여하는데, 그 값은 function 에서 전달받은 index
+            // 제일 첫번째로 들어오는 slider_text 의 text-index값은 0
+            // <div class=".slider_text" text-index="0" >
+          });
+
+        $(".control_button").each(function (index) {
+          $(this).attr("text-index", index);
+          // 여기의 index는 현재 this가 몇번째 객체인지 설명하는 값
+          // <div class=".control_button" text-index="0" >
+          $(this).click(function () {
+            moveSlider(index);
+          });
+        });
+
+        // 이미지를 랜덤으로 선택에서 처음 이미지로 하기
+        let random = Math.floor(Math.random() * 6);
+        moveSlider(random);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>HEAD</h1>
+    <div class="animation_canvas">
+      <!-- 전체 이미지 슬라이드 -->
+      <div class="slider_panel">
+        <!-- 이미지를 담는 패널 (이미지 전환)-->
+        <img class="slider_image" src="img/01.jpg" />
+        <img class="slider_image" src="img/02.jpg" />
+        <img class="slider_image" src="img/03.jpg" />
+        <img class="slider_image" src="img/04.jpg" />
+        <img class="slider_image" src="img/05.jpg" />
+        <img class="slider_image" src="img/06.jpg" />
+      </div>
+      <div class="slider_text_panel">
+        <!-- 이미지 안에 글자를 담는 패널-->
+        <div class="slider_text">
+          <h1>Title1</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga iusto
+            porro ab quidem quibusdam doloremque incidunt corrupti amet corporis
+          </p>
+        </div>
+        <div class="slider_text">
+          <h1>Title2</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            doloremque rem perferendis enim. Sapiente inventore, facere
+          </p>
+        </div>
+        <div class="slider_text">
+          <h1>Title3</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat,
+            explicabo sit ipsam, error, laborum numquam ex cupiditate voluptates
+          </p>
+        </div>
+        <div class="slider_text">
+          <h1>Title4</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere est
+            sequi ad quae modi officiis reiciendis accusantium obcaecati, a,
+          </p>
+        </div>
+        <div class="slider_text">
+          <h1>Title5</h1>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio
+            perferendis officia repudiandae magni voluptate reiciendis culpa ab
+          </p>
+        </div>
+        <div class="slider_text">
+          <h1>Title6</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+            fugit, sapiente aspernatur laborum ipsum sit distinctio pariatur ea
+          </p>
+        </div>
+      </div>
+      <div class="control_panel">
+        <!-- 컨트롤 버튼을 담는 패널 -->
+        <div class="control_button"></div>
+        <div class="control_button"></div>
+        <div class="control_button"></div>
+        <div class="control_button"></div>
+        <div class="control_button"></div>
+        <div class="control_button"></div>
+      </div>
+    </div>
+    <h1>HEAD</h1>
+  </body>
+</html>

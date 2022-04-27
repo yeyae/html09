@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script src="../jquery-ui.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("div").hover(
+          function () {
+            $(this).addClass("reverse", 1000); // addClass 메소드를 1초에 걸쳐서 실행
+            // addClass() 메소드의 실행에 따른 변화를 1초동안 실행한다는 의미
+          },
+          function () {
+            $(this).removeClass("reverse", 1000); // removeClass 메소드를 1초에 걸쳐서 실행
+          }
+        );
+      });
+    </script>
+    <style>
+      .reverse {
+        color: white;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Title</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+        aspernatur, quidem eos repellat consequatur nisi laudantium nobis
+        reprehenderit numquam, incidunt sed. Perspiciatis animi laudantium
+        mollitia illum ipsum enim commodi quidem.
+      </p>
+    </div>
+    <div>
+      <h1>Title</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+        aspernatur, quidem eos repellat consequatur nisi laudantium nobis
+        reprehenderit numquam, incidunt sed. Perspiciatis animi laudantium
+        mollitia illum ipsum enim commodi quidem.
+      </p>
+    </div>
+    <div>
+      <h1>Title</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+        aspernatur, quidem eos repellat consequatur nisi laudantium nobis
+        reprehenderit numquam, incidunt sed. Perspiciatis animi laudantium
+        mollitia illum ipsum enim commodi quidem.
+      </p>
+    </div>
+  </body>
+</html>

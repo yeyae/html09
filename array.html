@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function () {
+        let array = [
+          { name: "홍길동", link: "https://www.naver.com" },
+          { name: "이순신", link: "https://www.google.com" },
+          { name: "장보고", link: "https://www.daum.net" },
+        ];
+
+        //for(let i=0; i<array.length; i++)
+        $.each(array, function (index, item) {
+          // index : 배열의 인덱스, 또는 객체의 키
+          // item : 해당 인덱스 또는 키의 값
+          let html = ""; // html 코드 저장할 변수
+
+          // 문자열 만들기
+          html += `<a href="${item.link}"><h1>${item.name}</h1></a>`;
+
+          // 문서 삽입
+          document.body.innerHTML += html;
+        });
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

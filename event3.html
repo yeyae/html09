@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function () {
+        // 이벤트를 연결합니다.
+
+        // 여러분들이 이벤트를 등록
+        // 클릭 이벤트 => h1 태그를 클릭하면 "이벤트 발생!" 이라는 알림창이 뜨도록
+        // $("h1").click(function () {
+        //   alert("이벤트 발생!");
+
+        //   $(this).off();
+        //   // this => 이벤트가 발생한 객체
+        //   // 이벤트 제거 off()
+        // });
+
+        $("h1").one("click", function () {
+          alert("이벤트 발생!");
+        });
+        // 1회용 이벤트 처리 ( 한번만 실행되고 이후에 실행되지 않음 )
+      });
+    </script>
+  </head>
+  <body>
+    <h1>CLICK ME</h1>
+  </body>
+</html>

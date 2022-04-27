@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("div").click(function () {
+          //   let width = $(this).css("width"); //현재 객체의 width 속성
+          //   let height = $(this).css("height"); //현재 객체의 height 속성
+          //   // width += 50;
+          //   // width = "50px50"
+          //   // width 속성을 변경해주고 싶다.
+          //   // 기본값에 + 50 을 해주고 싶음.
+
+          //   $(this).animate(
+          //     {
+          //       width: parseInt(width) + 50,
+          //       height: parseInt(height) + 50,
+          //     },
+          //     "slow"
+          //   );
+          //   // animate() 함수를 이용해서 div 의 크기를 50씩 늘려봅시다.
+          //   // 늘려야 되는 속성은 width, height
+          //   // 속도는 "slow"
+          $(this).animate(
+            {
+              width: "+=50",
+              height: "+=50",
+            },
+            "slow"
+          );
+          // queue : 자료구조  선입선출 (먼저 들어온 친구가 먼저 나가는)
+          // 애니메이션 큐 => 먼저 실행된 애니메이션이 끝나야 다음 순서의 애니메이션이 실행
+        });
+      });
+    </script>
+    <style>
+      div {
+        width: 50px;
+        height: 50px;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

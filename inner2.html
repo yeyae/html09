@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("div").html(function (index) {
+          // index 로 몇번째 div인지 알수 있다.
+          return `<h1>HEAD - ${index}</h1>`;
+          // return html코드
+        });
+
+        $("h1").html(function (index, html) {
+          // index는 몇번째 문서객체인지를 의미
+          // html은 무엇을 의미할지?? ==> h1태그 안에 존재하는 기존의 html
+          return `★${html}☆`;
+        });
+        // attr(), css(), html(), text() => 안에 함수 사용 가능
+
+        // 문서 객체도 제거
+        $("h1").first().remove();
+        // 문서의 h1 태그중 첫번째 객체를 제거
+        $("div").empty();
+        // 문서의 div 객체 내부를 제거
+      });
+    </script>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+  </body>
+</html>

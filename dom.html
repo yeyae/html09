@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function () {
+        // // 메소드를 통해서 동적으로 문서 객체
+        // $("<h1></h1>").html("HELLO WORLD!").appendTo("body"); // h1 태그 생성 후 안의 내용을 채움.
+        // // body 태그 뒤에 생성한 문서 객체를 추가
+        // $("<img />").attr("src", "0.png").appendTo("body");
+        // $("<img />", {
+        //   src: "1.png",
+        //   width: 200,
+        // }).appendTo("body");
+        // // img 의 속성 값을 json 객체를 통해 전달
+        // $(A).appendTo(B) : A를 B의 뒷부분에 추가
+        // $(A).prependTo(B) : A를 B의 앞부분에 추가
+        // $(A).insertAfter(B) : A를 B의 뒤에 추가
+        // $(A).insertBefore(B) : A를 B의 앞에 추가
+        // $("<h2>appendTo</h2>").appendTo("div");
+        // $("<h2>prependTo</h2>").prependTo("div");
+        // $("<h2>insertAfter</h2>").insertAfter("div");
+        // $("<h2>insertBefore</h2>").insertBefore("div");
+
+        // $(A).append(B) : B를 A의 뒷부분에 추가
+        // $(A).prepend(B) : B를 A의 앞부분에 추가
+        // $(A).after(B) : B를 A의 뒤에 추가
+        // $(A).before(B) : B를 A의 앞에 추가
+
+        let h1 = "<h1>HEAD</h1>";
+        let h2 = "<h2>HEAD2</h2>";
+        $("body").append(h1, h2); // 여러개를 한번에 추가
+
+        let users = [
+          {
+            name: "헐크",
+            img: "0.png",
+          },
+          {
+            name: "블랙위도우",
+            img: "1.png",
+          },
+          {
+            name: "아이언맨",
+            img: "2.png",
+          },
+        ];
+
+        $("div").append(function (index) {
+          let item = users[index];
+          let html = "";
+          html += `
+            <div>
+                <img src="${item.img}" width=100/>
+                <h1>${item.name}</h1>
+            </div>
+            `;
+
+          return html;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+  </body>
+</html>

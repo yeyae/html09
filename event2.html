@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("h1").hover(
+          function () {
+            $(this).addClass("reverse");
+          },
+          function () {
+            $(this).removeClass("reverse");
+          }
+        );
+        // h1 요소에 클릭했을시, 안의 텍스트에 - 추가 하는 이벤트 처리 함수 작성
+        // on ("click" , function () {})
+        // click( function() {})
+        $("h1").click(function () {
+          $(this).html(function (index, html) {
+            // index => 몇번째 h1 태그인지
+            // html => h1태그 안에 존재하는 기존의 html코드
+            return html + "-";
+          });
+        });
+      });
+      // hover(function() 1, function()  2 )
+      // 1번 함수 : mouseenter 에 대한 이벤트 처리 함수
+      // 2번 함수 : mouseleave 에 대한 이벤트 처리 함수
+    </script>
+    <style>
+      .reverse {
+        background: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HEAD - 0</h1>
+    <h1>HEAD - 1</h1>
+    <h1>HEAD - 2</h1>
+  </body>
+</html>

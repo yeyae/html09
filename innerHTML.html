@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function () {
+        let htmlcode = `
+        <div>
+          <img src="0.png" width="150"/>
+          <h1>헐크</h1>
+        </div>
+        <div>
+          <img src="1.png" width="150"/>
+          <h1>블랙위도우</h1>
+        </div>
+        <div>
+          <img src="2.png" width="150"/>
+          <h1>아이언맨</h1>
+        </div>
+        `;
+
+        $("body").html(htmlcode);
+        // body 문서 객체의 내부 html 코드 추가
+        // 사진 3개 준비 (아무거나)
+        // div 만들고 안에 이미지 , h1태그 넣어서 h1태그에는 사람 이름 => 3개
+        // html코드 말고 jquery 만 이용해서 출력해봅시다.
+        // div 하나 만들어서 id를 주고 그 id를 가진 div를 가져와서 html()
+        // html(html코드) => innerHTML = html코드
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

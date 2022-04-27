@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("div").hover(
+          function () {
+            // animate() 사용자 정의 효과 지정 함수
+            $(this).stop().animate(
+              {
+                left: 500, // 왼쪽 공백을 500만큼 주겠다.
+                top: 500,
+              },
+              5000
+            );
+          },
+          function () {
+            $(this).animate(
+              {
+                left: 0, // 왼쪽 공백을 다시 0으로 하겠다.
+                top: 0,
+              },
+              5000
+            );
+          }
+        );
+      });
+    </script>
+    <style>
+      div {
+        width: 50px;
+        height: 50px;
+        background-color: orange;
+        position: relative;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </body>
+</html>

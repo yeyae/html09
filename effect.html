@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("button").click(function () {
+          //$(".page").toggle("slow"); // toggle() : show() + hide()
+          //$(".page").slideToggle("slow"); // slideToggle() : slideUp() + slideDown()
+          //$(".page").fadeToggle("slow"); // fadeToggle() : fadeOut() + fadeIn()
+          $(".page").fadeOut("slow");
+          // 효과함수( 매개 변수1, 매개 변수2, 매개 변수3 )
+          // 매개변수 1 : 효과를 진행하는 속도를 지정
+          // 밀리초 단위의 숫자 또는 slow, normal, fast 중 하나
+          // 매개변수 2 : 효과가 끝난 후 실행할 함수
+          // 매개변수 3 : 애니메이션의 형태 ease (linear)
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button>Toggle show</button>
+    <div class="page">
+      <h1>Title</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed soluta
+        commodi aliquid veniam numquam doloremque doloribus dicta voluptate
+        ipsam! Totam, eos obcaecati! Dicta, explicabo. Deleniti est hic aliquam
+        modi id?
+      </p>
+    </div>
+  </body>
+</html>

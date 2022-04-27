@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("h1").on("click", function () {
+          // h1 의 click 이벤트 발생시 처리할 함수
+          // jqury this 는 이 문서 객체를 의미 ==> 여기서는 h1
+          $(this).html(function (index, html) {
+            return html + "+";
+          });
+        });
+
+        $("h1").on({
+          mouseenter: function () {
+            $(this).addClass("reverse");
+            // 이벤트가 발생한 객체에 클래스를 추가한다.
+          },
+          mouseleave: function () {
+            $(this).removeClass("reverse");
+            // 이벤트가 발생한 객체의 클래스를 삭제한다.
+            // 어떤 클래스를 ? reverse
+          },
+        });
+      });
+    </script>
+    <style>
+      .reverse {
+        background: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HEAD</h1>
+  </body>
+</html>
